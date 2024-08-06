@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tailwind CSS already includes responsive utilities, so additional CSS is minimal */
+
+@media (max-width: 768px) {
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.gradient-bg {
+    background-image: linear-gradient(
+        93.2deg,
+        rgba(24, 95, 246, 1) 14.4%,
+        rgba(27, 69, 166, 1) 90.8%
+    );
+}
