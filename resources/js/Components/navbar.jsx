@@ -19,13 +19,13 @@ const Navbar = () => {
                     </div>
                     <div className="hidden md:flex items-center justify-center space-x-6">
                         <Link
-                            href={route("register")}
+                            href={route("about-us")}
                             className="text-gray-800 hover:text-blue-700 font-semibold"
                         >
                             About Us
                         </Link>
                         <Link
-                            href={route("register")}
+                            href={route("contact-us")}
                             className="text-gray-800 hover:text-blue-700 font-semibold"
                         >
                             Contact Us
@@ -77,15 +77,19 @@ const Navbar = () => {
                     isOpen ? "h-56" : "h-0"
                 } ease-in-out transition-all 200`}
             >
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div
+                    className={`md:hidden ${
+                        isOpen ? "block" : "hidden"
+                    } px-2 pt-2 pb-3 space-y-1 sm:px-3`}
+                >
                     <Link
-                        href={route("register")}
+                        href={route("about-us")}
                         className="text-gray-800 hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
                     >
                         About Us
                     </Link>
                     <Link
-                        href={route("register")}
+                        href={route("contact-us")}
                         className="text-gray-800 hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
                     >
                         Contact Us
