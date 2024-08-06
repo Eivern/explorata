@@ -29,4 +29,8 @@ Route::get('/contact-us', function () {
     return Inertia::render('ContactUs');
 })->name('contact-us');
 
+Route::get('/destinations', function () {
+    return Inertia::render('Destinations');
+})->name('destinations');
+
 require __DIR__ . '/auth.php';

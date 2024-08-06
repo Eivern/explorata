@@ -80,7 +80,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         <img
                                             src={destination.image}
                                             alt={destination.name}
-                                            className="w-full h-64 object-cover mx-4 hover:scale-110 cursor-pointer"
+                                            className="w-full h-64 object-cover mx-4 hover:scale-110 cursor-pointer transition-all ease-in-out duration-1000"
                                         />
                                         {destination.badge && (
                                             <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
@@ -105,7 +105,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <img
                                         src={destination.image}
                                         alt={destination.name}
-                                        className="w-full h-64 object-cover hover:scale-110 cursor-pointer"
+                                        className="w-full h-64 object-cover hover:scale-110 cursor-pointer transition-all ease-in-out duration-1000"
                                     />
                                     {destination.badge && (
                                         <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
