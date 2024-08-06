@@ -15,7 +15,7 @@ export default function ContactUs() {
                     </div>
                 </div>
                 <div className="grid grid-cols-12 place-items-center place-content-center px-5  py-10">
-                    <div className="xs:col-span-12 xs:my-3 xs:shadow-md xs:rounded-md xs:p-3 md:my-0 md:shadow-none md:rounded-none md:p-0 md:col-span-4 grid place-items-center gap-3 ">
+                    <div className="col-span-12 my-3 shadow-md rounded-md p-3 md:my-0 md:shadow-none md:rounded-none md:p-0 md:col-span-4 grid place-items-center gap-3 ">
                         <div
                             className="bg-blue-600 rounded-full grid place-items-center"
                             style={{ width: "100px", height: "100px" }}
@@ -37,7 +37,7 @@ export default function ContactUs() {
                             bantuan segera.
                         </p>
                     </div>
-                    <div className="xs:col-span-12 xs:my-3 xs:shadow-md xs:rounded-md xs:p-3 md:my-0 md:shadow-none md:p-0 md:col-span-4 grid place-items-center gap-3">
+                    <div className="col-span-12 my-3 shadow-md rounded-md p-3 md:my-0 md:shadow-none md:p-0 md:col-span-4 grid place-items-center gap-3">
                         <div
                             className="bg-blue-600 rounded-full grid place-items-center"
                             style={{ width: "100px", height: "100px" }}
@@ -63,7 +63,7 @@ export default function ContactUs() {
                             Kirim email kepada kami di explorata@gmail.com.
                         </p>
                     </div>
-                    <div className="xs:col-span-12 xs:my-3 xs:shadow-md xs:rounded-md xs:p-3 md:my-0 md:shadow-none md:p-0 md:col-span-4 grid place-items-center gap-3">
+                    <div className="col-span-12 my-3 shadow-md rounded-md p-3 md:my-0 md:shadow-none md:p-0 md:col-span-4 grid place-items-center gap-3">
                         <div
                             className="bg-blue-600 rounded-full grid place-items-center"
                             style={{ width: "100px", height: "100px" }}
