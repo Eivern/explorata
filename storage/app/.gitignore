@@ -1,3 +1,5 @@
 *
 !public/
+!public/icons/
+!json/
 !.gitignore
