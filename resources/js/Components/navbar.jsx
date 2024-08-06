@@ -19,13 +19,13 @@ const Navbar = () => {
                     </div>
                     <div className="hidden md:flex items-center justify-center space-x-6">
                         <Link
-                            href={route("register")}
+                            href={route("about-us")}
                             className="text-gray-800 hover:text-blue-700 font-semibold"
                         >
                             About Us
                         </Link>
                         <Link
-                            href={route("register")}
+                            href={route("contact-us")}
                             className="text-gray-800 hover:text-blue-700 font-semibold"
                         >
                             Contact Us
