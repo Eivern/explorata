@@ -8,14 +8,17 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
         {
             name: "Mount Batur",
             image: "https://www.intrepidtravel.com/adventures/wp-content/uploads/2016/04/indonesia_bali_mount-batur.jpg",
+            badge: "Trending destination",
         },
         {
             name: "Pandawa Beach",
             image: "https://digitaltravelcouple.com/wp-content/uploads/2020/03/pandawa-beach-bali-1.jpg",
+            badge: "Trending destination",
         },
         {
             name: "Nusa Penida",
             image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
+            badge: "Trending destination",
         },
     ];
 
@@ -79,7 +82,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             alt={destination.name}
                                             className="w-full h-64 object-cover mx-4 hover:scale-110 cursor-pointer"
                                         />
-
+                                        {destination.badge && (
+                                            <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
+                                                {destination.badge}
+                                            </span>
+                                        )}
                                         <div className="p-4 bg-white">
                                             <h3 className="text-xl font-bold text-gray-900">
                                                 {destination.name}
@@ -100,7 +107,11 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                         alt={destination.name}
                                         className="w-full h-64 object-cover hover:scale-110 cursor-pointer"
                                     />
-
+                                    {destination.badge && (
+                                        <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
+                                            {destination.badge}
+                                        </span>
+                                    )}
                                     <div className="p-4 bg-white">
                                         <h3 className="text-xl font-bold text-gray-900">
                                             {destination.name}
