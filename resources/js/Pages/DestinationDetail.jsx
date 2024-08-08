@@ -7,7 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Badge from '@/Components/Badge';
 import formatRupiah from '@/utlis/formatRupiah';
 
-export default function DestinationDetail() {
+export default function DestinationDetail({ destination }) {
+  console.log(destination);
   const settings = {
     dots: true,
     infinite: true,
@@ -35,41 +36,37 @@ export default function DestinationDetail() {
             >
               <i className="fa fa-trash" />
             </button>
-            <h1 className="text-3xl font-bold mb-7">Destination Name</h1>
+            <h1 className="text-3xl font-bold mb-7">{destination.name}</h1>
             <div className="relative mb-10">
               <div className="absolute top-0 z-10 w-full">
                 <Badge>Trending Destination</Badge>
               </div>
               <Slider {...settings}>
-                <div>
-                  <img
-                    src="https://a.travel-assets.com/findyours-php/viewfinder/images/res40/481000/481689-Ocean-View-Norfolk.jpg"
-                    alt="Pemandangan"
-                    className="w-full h-80 object-cover hover:scale-110 cursor-pointer"
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://thumbs.dreamstime.com/b/beautiful-view-nature-mountains-near-konigssee-lake-bavaria-germany-blue-sky-clouds-97444419.jpg"
-                    alt="Pemandangan"
-                    className="w-full h-80 object-cover hover:scale-110 cursor-pointer"
-                  />
-                </div>
+                {destination.images &&
+                  destination.images.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={image}
+                        alt={destination.name}
+                        className="w-full h-80 object-cover hover:scale-110 cursor-pointer"
+                      />
+                    </div>
+                  ))}
               </Slider>
             </div>
             <div className="mb-7">
               <h3 className="text-xl font-medium mb-3">Deskripsi</h3>
-              <p className="whitespace-pre-line">{dummyDescription}</p>
+              <p className="whitespace-pre-line">{destination.description}</p>
             </div>
             <div className="mb-7 flex flex-col gap-3">
               <h3 className="text-xl font-medium">Detail</h3>
               <div>
                 <h4 className="font-medium">Lokasi</h4>
-                <p>Jl. Raya Puputan No.86, Dangin Puri Klod, Kec. Denpasar Tim., Kota Denpasar, Bali 80234</p>
+                <p>{destination.address}</p>
               </div>
               <div>
                 <h4 className="font-medium">Tiket Masuk</h4>
-                <p>{formatRupiah(10000)}</p>
+                <p>{formatRupiah(destination.entrance_fee)}</p>
               </div>
             </div>
           </div>
