@@ -9,7 +9,7 @@ export default function Personal({
     bookmarkedDestinations,
 }) {
     const [imagePreview, setImagePreview] = useState(
-        auth.user.profile_photo_url
+        `storage/${auth.user.profile_photo}`
     );
     const { data, setData, post, processing, errors } = useForm({
         profile_photo: null,
@@ -25,14 +25,18 @@ export default function Personal({
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("profile.update-photo"));
+        post(route("profile.update-photo"), {
+            onSuccess: () => console.log('Profile photo updated successfully!'),
+            onError: (errors) => console.log(errors)
+        });
     };
+    
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Personal" />
 
             <div className="bg-white text-black flex flex-col items-center justify-center max-w-7xl my-10 mx-auto rounded-lg p-10">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="flex justify-center items-center space-x-16 border-b-2 border-gray-200 w-full pb-4">
                         <div className="relative">
                             <img
