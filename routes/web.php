@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,5 +29,8 @@ Route::get('/about-us', function () {
 Route::get('/contact-us', function () {
     return Inertia::render('ContactUs');
 })->name('contact-us');
+
+Route::get('/destinations', [DestinationController::class, 'index'])
+    ->name('destinations');
 
 require __DIR__ . '/auth.php';
