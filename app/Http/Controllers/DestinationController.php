@@ -29,6 +29,17 @@ class DestinationController extends Controller
     }
 
     /**
+     * Bookmark destination.
+     */
+    public function unbookmark(Destination $destination)
+    {
+        $user = Auth::user();
+        $user->destinations()->detach($destination->id);
+
+        return response()->json(['message' => 'Bookmark deleted!']);
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

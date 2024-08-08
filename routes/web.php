@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::post('/bookmark', [DestinationController::class, 'bookmark'])->name('bookmark');
+    Route::post('/unbookmark', [DestinationController::class, 'unbookmark'])->name('unbookmark');
 });
 
 
