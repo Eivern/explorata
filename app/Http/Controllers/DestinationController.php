@@ -37,7 +37,7 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        return Inertia::render('', [
+        return Inertia::render('DestinationDetail', [
             'destination' => $destination
         ]);
     }

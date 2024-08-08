@@ -33,4 +33,7 @@ Route::get('/contact-us', function () {
 Route::get('/destinations', [DestinationController::class, 'index'])
     ->name('destinations');
 
+Route::get('/destinations/{id}', [DestinationController::class, 'show'])
+    ->name('destinations.detail');
+
 require __DIR__ . '/auth.php';

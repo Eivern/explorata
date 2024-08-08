@@ -1,3 +1,4 @@
+import Badge from "../Badge"
 const DestinationCard = (props) => {
   return (
     <div
@@ -10,9 +11,7 @@ const DestinationCard = (props) => {
         className="w-full h-64 object-cover hover:scale-110 cursor-pointer"
       />
       {props.badge && (
-        <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
-          {props.badge}
-        </span>
+        <Badge>{props.badge}</Badge>
       )}
       <div className="p-4 bg-white">
         <h3 className="text-xl font-bold text-gray-900">
