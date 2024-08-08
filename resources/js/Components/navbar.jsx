@@ -11,7 +11,7 @@ const Navbar = () => {
                     <div className="flex items-center cursor-pointer">
                         <Link href="/">
                             <img
-                                src="logo.png"
+                                src="/logo.png"
                                 alt="explorata"
                                 className="h-16"
                             />
@@ -73,14 +73,12 @@ const Navbar = () => {
             </div>
 
             <div
-                className={`md:hidden ${
-                    isOpen ? "h-56" : "h-0"
-                } ease-in-out transition-all 200`}
+                className={`md:hidden ${isOpen ? "h-56" : "h-0"
+                    } ease-in-out transition-all 200`}
             >
                 <div
-                    className={`md:hidden ${
-                        isOpen ? "block" : "hidden"
-                    } px-2 pt-2 pb-3 space-y-1 sm:px-3`}
+                    className={`md:hidden ${isOpen ? "block" : "hidden"
+                        } px-2 pt-2 pb-3 space-y-1 sm:px-3`}
                 >
                     <Link
                         href={route("about-us")}
