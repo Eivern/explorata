@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 #[ObservedBy(MultipleImageObserver::class)]
 class Destination extends Model
@@ -40,5 +41,10 @@ class Destination extends Model
     public function state(): BelongsTo
     {
         return $this->belongsTo(State::class, 'state_id');
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_destination');
     }
 }
