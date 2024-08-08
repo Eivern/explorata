@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, Head } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import DestinationCard from '@/Components/cards/DestinationCard';
 
@@ -43,6 +44,7 @@ export default function Destinations() {
 
   return (
     <>
+      <Head title="Destinations" />
       <GuestLayout>
         <div className="min-h-screen pt-16 main-container"
         >
