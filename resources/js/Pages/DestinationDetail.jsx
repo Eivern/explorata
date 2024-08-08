@@ -21,12 +21,20 @@ export default function DestinationDetail() {
   \nThis is dummy description, bro. 
   `
 
+  let isBookmarked = false
+
   return (
     <>
       <Head title="Destination Detail" />
       <GuestLayout>
         <div className="main-container min-h-screen pt-16 pb-32">
-          <div className="w-full p-8 bg-white rounded-xl shadow-lg">
+          <div className="relative w-full p-8 bg-white rounded-xl shadow-lg">
+            <button
+              className="absolute top-8 right-8"
+              on
+            >
+              <i className="fa fa-trash" />
+            </button>
             <h1 className="text-3xl font-bold mb-7">Destination Name</h1>
             <div className="relative mb-10">
               <div className="absolute top-0 z-10 w-full">

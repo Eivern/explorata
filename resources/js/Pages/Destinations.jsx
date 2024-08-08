@@ -3,48 +3,12 @@ import { Link, Head } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import DestinationCard from '@/Components/cards/DestinationCard';
 
-export default function Destinations() {
-  const destinations = [
-    {
-      name: "Mount Batur",
-      image: "https://www.intrepidtravel.com/adventures/wp-content/uploads/2016/04/indonesia_bali_mount-batur.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Pandawa Beach",
-      image: "https://digitaltravelcouple.com/wp-content/uploads/2020/03/pandawa-beach-bali-1.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Nusa Penida",
-      image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Nusa Penida",
-      image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Nusa Penida",
-      image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Nusa Penida",
-      image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-      badge: "Trending destination",
-    },
-    {
-      name: "Nusa Penida",
-      image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-      badge: "Trending destination",
-    },
-  ];
+export default function Destinations(props) {
+  const destinations = props.destinations
 
   return (
     <>
-      <Head title="Destinations" />
+      <Head title={props.title} />
       <GuestLayout>
         <div className="min-h-screen pt-16 main-container"
         >
@@ -53,7 +17,7 @@ export default function Destinations() {
               <DestinationCard
                 key={index}
                 name={destination.name}
-                image={destination.image}
+                image={destination.images[0]}
                 badge={destination.badge}
               />
             ))}

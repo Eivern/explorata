@@ -14,7 +14,11 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Destinations');
+        $destinations = Destination::all();
+        return Inertia::render('Destinations', [
+            'title' => "Destinations",
+            'destinations' => $destinations
+        ]);
     }
 
     /**
