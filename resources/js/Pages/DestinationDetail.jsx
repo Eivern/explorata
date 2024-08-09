@@ -1,14 +1,18 @@
-import React from 'react'
-import { Link, Head } from "@inertiajs/react";
+import React, { useState, useEffect } from 'react'
+import { Link, Head, usePage } from "@inertiajs/react";
 import GuestLayout from "@/Layouts/GuestLayout";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Badge from '@/Components/Badge';
-import formatRupiah from '@/utlis/formatRupiah';
+import formatRupiah from '@/Utils/formatRupiah';
+import { Inertia } from '@inertiajs/inertia';
 
-export default function DestinationDetail({ destination }) {
-  console.log(destination);
+export default function DestinationDetail(props) {
+  const destination = props.destination
+  const [isBookmarked, setIsBookmarked] = useState(props.isBookmarked)
+  const isLogin = props.isLogin
+
   const settings = {
     dots: true,
     infinite: true,
@@ -18,11 +22,16 @@ export default function DestinationDetail({ destination }) {
     adaptiveHeight: true,
   };
 
-  const dummyDescription = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, odio neque, omnis placeat maxime in iure expedita debitis officia ex laborum aperiam, deleniti vitae. At rem, facilis quia amet odio et, dolor consectetur blanditiis doloribus aut, magni dolore nulla quod maxime. Aspernatur, quae quasi esse unde obcaecati magni magnam nisi delectus nam temporibus quia officiis dolor ratione laborum at quisquam dolorem quo tempore omnis quod! Exercitationem corporis voluptate similique impedit eos vel saepe aspernatur rerum eius mollitia cum maxime inventore ab, iste eum, alias, amet voluptates nisi iusto ea itaque numquam. Consectetur obcaecati, quibusdam sed corrupti cupiditate quam nisi?
-  \nThis is dummy description, bro. 
-  `
+  const bookmark = () => {
+    Inertia.post(`/bookmark/destination/${destination.id}`)
+    setIsBookmarked(true)
+  }
 
-  let isBookmarked = false
+  const unbookmark = () => {
+    Inertia.post(`/unbookmark/destination/${destination.id}`)
+    setIsBookmarked(false)
+  }
+
 
   return (
     <>
@@ -30,12 +39,18 @@ export default function DestinationDetail({ destination }) {
       <GuestLayout>
         <div className="main-container min-h-screen pt-16 pb-32">
           <div className="relative w-full p-8 bg-white rounded-xl shadow-lg">
-            <button
-              className="absolute top-8 right-8"
-              on
-            >
-              <i className="fa fa-trash" />
-            </button>
+            {/* {
+              props.message &&
+              <span>{message}</span>
+            } */}
+            {isLogin &&
+              <button
+                className="absolute top-8 right-8"
+                onClick={() => { !isBookmarked ? bookmark() : unbookmark() }}
+              >
+                {!isBookmarked ? 'Bookmark' : 'Unbookmark'}
+              </button>
+            }
             <h1 className="text-3xl font-bold mb-7">{destination.name}</h1>
             <div className="relative mb-10">
               <div className="absolute top-0 z-10 w-full">
@@ -46,9 +61,9 @@ export default function DestinationDetail({ destination }) {
                   destination.images.map((image, index) => (
                     <div key={index}>
                       <img
-                        src={image}
+                        src={`/storage/${image}`}
                         alt={destination.name}
-                        className="w-full h-80 object-cover hover:scale-110 cursor-pointer"
+                        className="w-full h-96 object-cover hover:scale-110 cursor-pointer"
                       />
                     </div>
                   ))}

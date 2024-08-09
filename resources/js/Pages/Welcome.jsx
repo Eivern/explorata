@@ -3,8 +3,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import DestinationCard from "@/Components/cards/DestinationCard";
-
+import Card from "@/Components/Card";
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const destinations = [
         {
@@ -75,36 +74,20 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         <div className="md:hidden">
                             <Slider {...settings}>
                                 {destinations.map((destination, index) => (
-                                    <div
+                                    <Card
                                         key={index}
-                                        className="relative rounded-lg overflow-hidden shadow-lg "
-                                    >
-                                        <img
-                                            src={destination.image}
-                                            alt={destination.name}
-                                            className="w-full h-64 object-cover mx-4 hover:scale-110 cursor-pointer transition-all ease-in-out duration-1000"
-                                        />
-                                        {destination.badge && (
-                                            <span className="absolute top-2 left-2 bg-orange-500 text-white text-sm px-2 py-1 rounded-full">
-                                                {destination.badge}
-                                            </span>
-                                        )}
-                                        <div className="p-4 bg-white">
-                                            <h3 className="text-xl font-bold text-gray-900">
-                                                {destination.name}
-                                            </h3>
-                                        </div>
-                                    </div>
+                                        title={destination.name}
+                                        image={destination.image}
+                                    />
                                 ))}
                             </Slider>
                         </div>
                         <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {destinations.map((destination, index) => (
-                                <DestinationCard
+                                <Card
                                     key={index}
-                                    name={destination.name}
+                                    title={destination.name}
                                     image={destination.image}
-                                    badge={destination.badge}
                                 />
                             ))}
                         </div>
