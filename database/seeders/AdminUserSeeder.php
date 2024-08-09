@@ -13,6 +13,6 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::updateOrCreate(['email' => 'admin@explorata.com'], ['name' => 'Admin Explorata', 'password' => bcrypt('explorata2024')]);
+        User::updateOrCreate(['email' => 'admin@explorata.com'], ['name' => 'Admin Explorata', 'password' => bcrypt('explorata2024'), 'role' => 'Admin']);
     }
 }

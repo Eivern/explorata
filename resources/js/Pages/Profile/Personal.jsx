@@ -3,7 +3,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 import { Head, Link } from "@inertiajs/react";
 
-export default function Personal({ auth, mustVerifyEmail, status }) {
+export default function Personal({ auth, mustVerifyEmail, status, bookmarkedDestinations }) {
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Personal" />
@@ -25,6 +25,14 @@ export default function Personal({ auth, mustVerifyEmail, status }) {
                     <h4 className="text-xl font-semibold text-center">
                         Saved Destinations
                     </h4>
+
+                    {/* ini contoh */}
+                    <ul>
+                        {bookmarkedDestinations.map(destination => (
+                            <li key={destination.id}>{destination.name}</li>
+                        ))}
+                    </ul>
+                    
                     <div className="grid grid-cols-12 my-10 gap-4">
                         <div className="col-span-6 md:col-span-4 lg:col-span-3 ">
                             <img

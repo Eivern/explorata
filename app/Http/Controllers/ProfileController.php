@@ -14,6 +14,19 @@ use Inertia\Response;
 class ProfileController extends Controller
 {
     /**
+     * Show the form for creating a new resource.
+     */
+    public function bookmark()
+    {
+        $user = Auth::user();
+        $bookmarkedDestinations = $user->destinations;
+        return Inertia::render('Profile/Personal', [
+            'user' => $user,
+            'bookmarkedDestinations' => $bookmarkedDestinations,
+        ]);
+    }
+
+    /**
      * Display the user's profile form.
      */
     public function edit(Request $request): Response

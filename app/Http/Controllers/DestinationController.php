@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class DestinationController extends Controller
@@ -13,7 +14,33 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        // 
+        $destinations = Destination::all();
+        return Inertia::render('Destinations', [
+            'title' => "Destinations",
+            'destinations' => $destinations
+        ]);
+    }
+
+    /**
+     * Bookmark destination.
+     */
+    public function bookmark(Destination $destination)
+    {
+        $user = Auth::user();
+        $user->destinations()->attach($destination->id);
+
+        return response()->json(['message' => 'Destination bookmarked successfully!']);
+    }
+
+    /**
+     * Bookmark destination.
+     */
+    public function unbookmark(Destination $destination)
+    {
+        $user = Auth::user();
+        $user->destinations()->detach($destination->id);
+
+        return response()->json(['message' => 'Bookmark deleted!']);
     }
 
     /**
@@ -37,7 +64,7 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        return Inertia::render('', [
+        return Inertia::render('DestinationDetail', [
             'destination' => $destination
         ]);
     }
