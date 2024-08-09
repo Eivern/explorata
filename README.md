@@ -30,6 +30,19 @@ Start the server
 ```bash
   php artisan ser
 ```
+
+Admin Credential
+```bash
+  Email: admin@explorata.com
+  Email: explorata2024
+```
+
+Link to access storage
+```bash
+  php artisan storage:link
+```
+
+
 ## Documentation
 
 [Laravel Documentation](https://laravel.com/docs/11.x) | 
