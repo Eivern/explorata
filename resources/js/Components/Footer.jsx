@@ -33,7 +33,7 @@ const Footer = () => {
 
                     <div className="px-5 py-2">
                         <Link
-                            href="/terms-and-condition"
+                            href="/terms-and-conditions"
                             className="text-base leading-6 text-gray-500 hover:text-blue-600"
                         >
                             Terms

@@ -33,6 +33,10 @@ Route::middleware(['auth'])->group(function () {
         return Inertia::render('ContactUs');
     })->name('contact-us');
 
+    Route::get('/terms-and-conditions', function () {
+        return Inertia::render('Terms');
+    })->name('terms-and-conditions');
+
     Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations');
 
     Route::get('/destinations/{destination}', [DestinationController::class, 'show'])
@@ -62,6 +66,10 @@ Route::get('/about-us', function () {
 Route::get('/contact-us', function () {
     return Inertia::render('ContactUs');
 })->name('contact-us');
+
+Route::get('/terms-and-conditions', function () {
+    return Inertia::render('Terms');
+})->name('terms-and-conditions');
 
 Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations');
 
