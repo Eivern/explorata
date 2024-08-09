@@ -1,7 +1,7 @@
 import GuestLayout from "@/Layouts/GuestLayout";
-export default function AboutUs() {
+export default function AboutUs(props) {
     return (
-        <GuestLayout>
+        <GuestLayout user={props.auth.user}>
             <div className="bg-primary overflow-x-hidden">
                 {/* Hero Section */}
                 <section className="py-20">

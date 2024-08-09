@@ -1,7 +1,7 @@
 import GuestLayout from "@/Layouts/GuestLayout";
-export default function ContactUs() {
+export default function ContactUs(props) {
     return (
-        <GuestLayout>
+        <GuestLayout user={props.auth.user}>
             <div className=" bg-primary text-black">
                 <div className="h-96  gradient-bg  flex justify-center items-center">
                     <div className="text-center text-white">
