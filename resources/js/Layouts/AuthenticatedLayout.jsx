@@ -10,14 +10,20 @@ export default function Authenticated({ user, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white  border-b border-gray-100 ">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-100 overflow-hidden">
+            <nav className="bg-white border-b border-gray-100 ">
+                <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 " />
+                                    {/* <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 " />
+                                     */}
+                                    <img
+                                        src="logo.png"
+                                        alt="explorata"
+                                        className="h-16"
+                                    />
                                 </Link>
                             </div>
 
@@ -38,7 +44,7 @@ export default function Authenticated({ user, header, children }) {
                                         <span className="inline-flex rounded-md">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500  bg-white  hover:text-gray-700  focus:outline-none transition ease-in-out duration-150"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-semibold rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
 
@@ -125,7 +131,7 @@ export default function Authenticated({ user, header, children }) {
                         " sm:hidden"
                     }
                 >
-                    <div className="pt-2 pb-3 space-y-1">
+                    <div className="px-3 py-2 space-y-1 rounded">
                         <ResponsiveNavLink
                             href={route("dashboard")}
                             active={route().current("dashboard")}
@@ -144,7 +150,7 @@ export default function Authenticated({ user, header, children }) {
                             </div>
                         </div>
 
-                        <div className="mt-3 space-y-1">
+                        <div className="mt-3 px-2">
                             <ResponsiveNavLink href={route("profile.personal")}>
                                 Profile
                             </ResponsiveNavLink>
