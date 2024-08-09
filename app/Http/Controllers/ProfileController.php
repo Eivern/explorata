@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -16,7 +19,7 @@ class ProfileController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function bookmark()
+    public function index()
     {
         $user = Auth::user();
         $bookmarkedDestinations = $user->destinations;
@@ -51,6 +54,28 @@ class ProfileController extends Controller
         $request->user()->save();
 
         return Redirect::route('profile.edit');
+    }
+
+    /**
+     * Update the user's photo ptofile.
+     */
+    public function updatePhoto(ProfileUpdateRequest $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if ($request->hasFile('profile_photo')) {
+            if ($user->profile_photo) {
+                Storage::disk('public')->delete($user->profile_photo);
+            }
+
+            $path = $request->file('profile_photo')->store('profile_photos', 'public');
+
+            $user->profile_photo = $path;
+        }
+
+        $user->save();
+
+        return response()->json(['message' => 'Photo profile was successfully updated!']);
     }
 
     /**
