@@ -14,7 +14,11 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Destinations');
+        $destinations = Destination::all();
+        return Inertia::render('Destinations', [
+            'title' => "Destinations",
+            'destinations' => $destinations
+        ]);
     }
 
     /**
@@ -23,9 +27,10 @@ class DestinationController extends Controller
     public function bookmark(Destination $destination)
     {
         $user = Auth::user();
-        $user->destinations()->attach($destination->id);
-
-        return response()->json(['message' => 'Destination bookmarked successfully!']);
+        if ($user) {
+            $user->destinations()->attach($destination->id);
+            return redirect()->route('destinations.detail', $destination->id)->with('message', 'Destination bookmarked successfully!');
+        }
     }
 
     /**
@@ -34,9 +39,10 @@ class DestinationController extends Controller
     public function unbookmark(Destination $destination)
     {
         $user = Auth::user();
-        $user->destinations()->detach($destination->id);
-
-        return response()->json(['message' => 'Bookmark deleted!']);
+        if ($user) {
+            $user->destinations()->detach($destination->id);
+            return redirect()->route('destinations.detail', $destination->id)->with('message', 'Destination bookmarked successfully!');
+        }
     }
 
     /**
@@ -60,8 +66,16 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        return Inertia::render('', [
-            'destination' => $destination
+        $user = Auth::user();
+        $isBookmarked = false;
+        if ($user) {
+            $isBookmarked = $user->destinations->contains($destination->id);
+        }
+
+        return Inertia::render('DestinationDetail', [
+            'destination' => $destination,
+            'isLogin' => !!$user,
+            'isBookmarked' => $isBookmarked,
         ]);
     }
 

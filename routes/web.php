@@ -45,4 +45,13 @@ Route::get('/contact-us', function () {
 
 Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations');
 
+Route::get('/destinations/{destination}', [DestinationController::class, 'show'])
+    ->name('destinations.detail');
+
+Route::post('/bookmark/destination/{destination}', [DestinationController::class, 'bookmark'])
+    ->middleware(['auth'])->name('bookmark.destination');
+
+Route::post('/unbookmark/destination/{destination}', [DestinationController::class, 'unbookmark'])
+    ->middleware(['auth'])->name('bookmark.destination');
+
 require __DIR__ . '/auth.php';
