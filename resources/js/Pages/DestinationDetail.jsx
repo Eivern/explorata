@@ -35,7 +35,7 @@ export default function DestinationDetail(props) {
 
   return (
     <>
-      <Head title="Destination Detail" />
+      <Head title={destination.name} />
       <GuestLayout>
         <div className="main-container min-h-screen pt-16 pb-32">
           <div className="relative w-full p-8 bg-white rounded-xl shadow-lg">
