@@ -34,7 +34,7 @@ Start the server
 Admin Credential
 ```bash
   Email: admin@explorata.com
-  Email: explorata2024
+  Password: explorata2024
 ```
 
 Link to access storage
