@@ -12,7 +12,7 @@ export default function Destinations(props) {
     <>
       <Head title={props.title} />
       <GuestLayout>
-        <div className="min-h-screen pt-16 main-container"
+        <div className="min-h-screen py-16 main-container"
         >
           <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destinations.map((destination, index) => (
