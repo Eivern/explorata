@@ -36,9 +36,11 @@ export default function Welcome(props) {
                             Discover breathtaking destinations and adventures
                             with Explorata.
                         </p>
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <Link
+                            href="/register"
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Get Started
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 <section className="py-12">

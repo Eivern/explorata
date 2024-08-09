@@ -24,7 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/bookmark', [DestinationController::class, 'bookmark'])->name('bookmark');
     Route::post('/unbookmark', [DestinationController::class, 'unbookmark'])->name('unbookmark');
 
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    // Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about-us', function () {
         return Inertia::render('AboutUs');
     })->name('about-us');
