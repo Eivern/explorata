@@ -11,6 +11,7 @@ import { Inertia } from '@inertiajs/inertia';
 export default function DestinationDetail(props) {
   const destination = props.destination
   const [isBookmarked, setIsBookmarked] = useState(props.isBookmarked)
+  const isLogin = props.isLogin
 
   const settings = {
     dots: true,
@@ -38,12 +39,18 @@ export default function DestinationDetail(props) {
       <GuestLayout>
         <div className="main-container min-h-screen pt-16 pb-32">
           <div className="relative w-full p-8 bg-white rounded-xl shadow-lg">
-            <button
-              className="absolute top-8 right-8"
-              onClick={() => { !isBookmarked ? bookmark() : unbookmark() }}
-            >
-              {!isBookmarked ? 'Bookmark' : 'Unbookmark'}
-            </button>
+            {/* {
+              props.message &&
+              <span>{message}</span>
+            } */}
+            {isLogin &&
+              <button
+                className="absolute top-8 right-8"
+                onClick={() => { !isBookmarked ? bookmark() : unbookmark() }}
+              >
+                {!isBookmarked ? 'Bookmark' : 'Unbookmark'}
+              </button>
+            }
             <h1 className="text-3xl font-bold mb-7">{destination.name}</h1>
             <div className="relative mb-10">
               <div className="absolute top-0 z-10 w-full">

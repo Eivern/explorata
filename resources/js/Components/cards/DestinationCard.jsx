@@ -1,5 +1,8 @@
 import Badge from "../Badge"
+import { Link } from "@inertiajs/react";
+
 const DestinationCard = (props) => {
+  console.log(props);
   return (
     <div
       key={props.index}
@@ -17,6 +20,12 @@ const DestinationCard = (props) => {
         <h3 className="text-xl font-bold text-gray-900">
           {props.name}
         </h3>
+        <Link
+          href={`/destinations/${props.id}`}
+          className=""
+        >
+          Lihat Detail
+        </Link>
       </div>
     </div>
   )
