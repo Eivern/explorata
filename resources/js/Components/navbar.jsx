@@ -62,7 +62,7 @@ const Navbar = () => {
                                 href={route(link.href)}
                                 className={` hover:text-blue-700 font-semibold ${
                                     link.href === currentPath
-                                        ? "text-blue-700"
+                                        ? "text-blue-700 border-b-2 border-blue-700"
                                         : "text-gray-800"
                                 }`}
                             >
