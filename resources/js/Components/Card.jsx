@@ -32,12 +32,14 @@ export default function Card({
                     <h2 className={` font-bold ${titleClassName}`}>{title}</h2>
                 )}
                 {description && <p className="text-justify">{description}</p>}
-                <Link
-                    href={`/destinations/${id}`}
-                    className=""
-                >
-                    Lihat Detail
-                </Link>
+                {id &&
+                    <Link
+                        href={`/destinations/${id}`}
+                        className=""
+                    >
+                        Lihat Detail
+                    </Link>
+                }
             </div>
         </div>
     );
