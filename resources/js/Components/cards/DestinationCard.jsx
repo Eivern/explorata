@@ -6,7 +6,7 @@ const DestinationCard = (props) => {
       className="relative rounded-lg overflow-hidden shadow-lg mx-4"
     >
       <img
-        src={props.image}
+        src={`/storage/${props.image}`}
         alt={props.name}
         className="w-full h-64 object-cover hover:scale-110 cursor-pointer"
       />

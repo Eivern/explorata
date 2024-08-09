@@ -64,8 +64,12 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
+        $user = Auth::user();
+        $isBookmarked = $user->destinations->contains($destination->id);
+
         return Inertia::render('DestinationDetail', [
-            'destination' => $destination
+            'destination' => $destination,
+            'isBookmarked' => $isBookmarked
         ]);
     }
 
