@@ -7,7 +7,6 @@ import Card from "@/Components/Card";
 
 export default function Welcome(props) {
     const destinations = props.destinations;
-    console.log(destinations[0].images[0]);
 
     const settings = {
         dots: true,
@@ -54,8 +53,9 @@ export default function Welcome(props) {
                         </div>
                         <div className="flex justify-end mb-8">
                             <Link
-                                href='/destinations'
-                                className="bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-full">
+                                href="/destinations"
+                                className="bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-full"
+                            >
                                 View all destinations
                             </Link>
                         </div>

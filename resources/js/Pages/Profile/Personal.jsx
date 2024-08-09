@@ -114,9 +114,9 @@ export default function Personal({
                                     <img
                                         src={`/storage/${destination.images[0]}`}
                                         alt={destination.name}
-                                        className="rounded-lg transition-transform transform group-hover:scale-110 ease-in-out duration-300 "
+                                        className="rounded-lg transition-transform transform group-hover:scale-110 ease-in-out duration-300 h-full"
                                     />
-                                    <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-300 flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-300 flex items-center justify-center scale-110">
                                         <div className="text-center text-white">
                                             <h4 className="text-lg font-semibold">
                                                 {destination.name}
@@ -125,6 +125,14 @@ export default function Personal({
                                                 Entry Price: Rp.
                                                 {destination.entrance_fee}
                                             </p>
+                                            <button className="bg-white text-black rounded-lg p-1 mt-4 font-semibold">
+                                                <Link
+                                                    href={`/destinations/${destination.id}`}
+                                                    className=""
+                                                >
+                                                    Lihat Detail
+                                                </Link>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
