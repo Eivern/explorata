@@ -4,24 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "@/Components/Card";
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
-    const destinations = [
-        {
-            name: "Mount Batur",
-            image: "https://www.intrepidtravel.com/adventures/wp-content/uploads/2016/04/indonesia_bali_mount-batur.jpg",
-            badge: "Trending destination",
-        },
-        {
-            name: "Pandawa Beach",
-            image: "https://digitaltravelcouple.com/wp-content/uploads/2020/03/pandawa-beach-bali-1.jpg",
-            badge: "Trending destination",
-        },
-        {
-            name: "Nusa Penida",
-            image: "https://finnsbeachclub.com/wp-content/uploads/2023/12/kelingking-beach-nusa-penida-bali-indonesia-2023-11-27-05-02-05-utc-1024x672.jpg",
-            badge: "Trending destination",
-        },
-    ];
+
+export default function Welcome(props) {
+    const destinations = props.destinations;
 
     const settings = {
         dots: true,
@@ -34,7 +19,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>
             <Head title="Welcome" />
-            <GuestLayout>
+            <GuestLayout user={props.auth.user}>
                 <div
                     className="relative min-h-screen bg-cover bg-center flex items-center justify-center"
                     style={{
@@ -67,9 +52,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             </p>
                         </div>
                         <div className="flex justify-end mb-8">
-                            <button className="bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-full">
+                            <Link
+                                href="/destinations"
+                                className="bg-gray-100 text-gray-800 font-bold py-2 px-4 rounded-full"
+                            >
                                 View all destinations
-                            </button>
+                            </Link>
                         </div>
                         <div className="md:hidden">
                             <Slider {...settings}>
@@ -77,7 +65,7 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                     <Card
                                         key={index}
                                         title={destination.name}
-                                        image={destination.image}
+                                        image={destination.images[0]}
                                     />
                                 ))}
                             </Slider>
@@ -86,8 +74,9 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                             {destinations.map((destination, index) => (
                                 <Card
                                     key={index}
+                                    id={destination.id}
                                     title={destination.name}
-                                    image={destination.image}
+                                    image={destination.images[0]}
                                 />
                             ))}
                         </div>

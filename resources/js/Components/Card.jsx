@@ -1,4 +1,7 @@
+import { Link } from "@inertiajs/react";
+
 export default function Card({
+    id,
     title,
     description,
     image,
@@ -14,7 +17,7 @@ export default function Card({
         >
             {image && (
                 <img
-                    src={image}
+                    src={`/storage/${image}`}
                     alt={title}
                     className="w-full h-64 md:h-80 object-cover overflow-hidden scale-110 cursor-pointer"
                 />
@@ -29,6 +32,12 @@ export default function Card({
                     <h2 className={` font-bold ${titleClassName}`}>{title}</h2>
                 )}
                 {description && <p className="text-justify">{description}</p>}
+                <Link
+                    href={`/destinations/${id}`}
+                    className=""
+                >
+                    Lihat Detail
+                </Link>
             </div>
         </div>
     );

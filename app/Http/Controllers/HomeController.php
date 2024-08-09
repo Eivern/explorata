@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index(): Response
     {
-        $destinations = Destination::with(['country', 'state'])->get();
+        $destinations = Destination::all()->take(3);
 
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
