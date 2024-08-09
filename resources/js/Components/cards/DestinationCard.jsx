@@ -1,27 +1,26 @@
 import Badge from "../Badge"
 import { Link } from "@inertiajs/react";
 
-const DestinationCard = (props) => {
-  console.log(props);
+const DestinationCard = ({ destination }) => {
+  console.log(destination);
   return (
     <div
-      key={props.index}
       className="relative rounded-lg overflow-hidden shadow-lg mx-4"
     >
       <img
-        src={`/storage/${props.image}`}
-        alt={props.name}
+        src={`/storage/${destination.images[0]}`}
+        alt={destination.name}
         className="w-full h-64 object-cover hover:scale-110 cursor-pointer"
       />
-      {props.badge && (
-        <Badge>{props.badge}</Badge>
+      {destination.badge && (
+        <Badge>{destination.badge}</Badge>
       )}
       <div className="p-4 bg-white">
         <h3 className="text-xl font-bold text-gray-900">
-          {props.name}
+          {destination.name}
         </h3>
         <Link
-          href={`/destinations/${props.id}`}
+          href={`/destinations/${destination.id}`}
           className=""
         >
           Lihat Detail
