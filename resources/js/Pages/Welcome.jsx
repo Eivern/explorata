@@ -7,7 +7,6 @@ import Card from "@/Components/Card";
 
 export default function Welcome(props) {
     const destinations = props.destinations;
-    console.log(destinations[0].images[0]);
 
     const settings = {
         dots: true,
@@ -20,7 +19,7 @@ export default function Welcome(props) {
     return (
         <>
             <Head title="Welcome" />
-            <GuestLayout>
+            <GuestLayout user={props.auth.user}>
                 <div
                     className="relative min-h-screen bg-cover bg-center flex items-center justify-center"
                     style={{

@@ -36,7 +36,7 @@ export default function DestinationDetail(props) {
   return (
     <>
       <Head title={destination.name} />
-      <GuestLayout>
+      <GuestLayout user={props.auth.user}>
         <div className="main-container min-h-screen pt-16 pb-32">
           <div className="relative w-full p-8 bg-white rounded-xl shadow-lg">
             {/* {

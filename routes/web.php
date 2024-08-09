@@ -23,6 +23,26 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/bookmark', [DestinationController::class, 'bookmark'])->name('bookmark');
     Route::post('/unbookmark', [DestinationController::class, 'unbookmark'])->name('unbookmark');
+
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/about-us', function () {
+        return Inertia::render('AboutUs');
+    })->name('about-us');
+
+    Route::get('/contact-us', function () {
+        return Inertia::render('ContactUs');
+    })->name('contact-us');
+
+    Route::get('/destinations', [DestinationController::class, 'index'])->name('destinations');
+
+    Route::get('/destinations/{destination}', [DestinationController::class, 'show'])
+        ->name('destinations.detail');
+
+    Route::post('/bookmark/destination/{destination}', [DestinationController::class, 'bookmark'])
+        ->middleware(['auth'])->name('bookmark.destination');
+
+    Route::post('/unbookmark/destination/{destination}', [DestinationController::class, 'unbookmark'])
+        ->middleware(['auth'])->name('bookmark.destination');
 });
 
 // routes/web.php
