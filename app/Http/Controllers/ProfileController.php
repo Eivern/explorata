@@ -59,7 +59,7 @@ class ProfileController extends Controller
     /**
      * Update the user's photo ptofile.
      */
-    public function updatePhoto(ProfileUpdateRequest $request): JsonResponse
+    public function updatePhoto(ProfileUpdateRequest $request)
     {
         $user = $request->user();
 
@@ -75,7 +75,6 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return response()->json(['message' => 'Photo profile was successfully updated!']);
     }
 
     /**
