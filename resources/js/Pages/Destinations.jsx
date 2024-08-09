@@ -11,7 +11,7 @@ export default function Destinations(props) {
   return (
     <>
       <Head title={props.title} />
-      <GuestLayout>
+      <GuestLayout user={props.auth.user}>
         <div className="min-h-screen py-16 main-container"
         >
           <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
